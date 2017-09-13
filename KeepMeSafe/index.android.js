@@ -10,7 +10,8 @@ import {
   StyleSheet,
   Text,
   View, 
-  Button
+  Button,
+  TextInput
 } from 'react-native';
 import firebase from 'firebase'
 import TextoPrueba from './components/TextoPrueba'
@@ -28,12 +29,16 @@ function message(){
 }
 
 export default class KeepMeSafe extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {text: ''};
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
           Welcome to la AppCHIDA!
-          <TextoPrueba name="german"/>
         </Text>
         <Text style={styles.instructions}>
           To get started, edit index.android.js
@@ -42,6 +47,11 @@ export default class KeepMeSafe extends Component {
           Double tap R on your keyboard to reload,{'\n'}
           Shake or press menu button for dev menu
         </Text>
+        <TextInput
+          style={{height: 40}}
+          placeholder="Type here to translate!"
+          onChangeText={(text) => this.setState({text})}
+        />
         <Button title="hola mundo" onPress={message}/>
       </View>
     );
