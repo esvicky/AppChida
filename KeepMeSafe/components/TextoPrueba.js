@@ -9,7 +9,7 @@ import {
 export default class TextoPrueba extends Component{
 	render(){
 		return(
-			<Text>Hola</Text>
+			<Text>Adios</Text>
 			);
 	}
 }
