@@ -27,7 +27,7 @@ const firebaseConfig = {
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 function message(){
-  firebaseApp.database().ref('/comunidad/vicky').once('value').then((snap)=>alert(JSON.stringify(snap)));
+  firebaseApp.database().ref('/usuario/user1').once('value').then((snap)=>alert(JSON.stringify(snap)));
 }
 
 export default class KeepMeSafe extends Component {
@@ -42,16 +42,11 @@ export default class KeepMeSafe extends Component {
       <Image source={require('./components/city.png')}
             style={styles.imageBackground}>
         <View style={styles.container}>
+          <Text style={styles.logo}>
+            KMS
+          </Text>
           <Text style={styles.welcome}>
-            Welcome to la AppCHIDA!
-            <TextoPrueba name={this.state.text}/>
-          </Text>
-          <Text style={styles.instructions}>
-            To get started, edit index.android.js
-          </Text>
-          <Text style={styles.instructions}>
-            Double tap R on your keyboard to reload,{'\n'}
-            Shake or press menu button for dev menu
+            Regístrate
             <Persona name={this.state.p1}/>
           </Text>
           <TextInput
@@ -61,10 +56,42 @@ export default class KeepMeSafe extends Component {
           />
           <TextInput
             style={{height: 40, width: 200}}
-            placeholder="Type here to translate!"
-            onChangeText={(text) => this.setState({text})} 
+            placeholder="Nombre(s)"
+            onChangeText={(text) => this.setState({text})}
           />
-          <Button title="hola mundo" onPress={message}/>
+          <TextInput
+            style={{height: 40, width: 200}}
+            placeholder="Apellidos"
+            onChangeText={(text) => this.setState({text})}
+          />
+          <TextInput
+            style={{height: 40, width: 200}}
+            placeholder="Correo Electronico"
+            onChangeText={(text) => this.setState({text})}
+          />
+          <TextInput
+            style={{height: 40, width: 200}}
+            placeholder="Usuario"
+            onChangeText={(text) => this.setState({text})}
+          />
+          <TextInput
+            style={{height: 40, width: 200}}
+            placeholder="Contraseña"
+            onChangeText={(text) => this.setState({text})}
+          />
+          <TextInput
+            style={{height: 40, width: 200}}
+            placeholder="Verifica Contraseña"
+            onChangeText={(text) => this.setState({text})}
+          />
+          <TextInput
+            style={{height: 40, width: 200}}
+            placeholder="Telefono"
+            onChangeText={(text) => this.setState({text})}
+          />
+          <Button style={styles.button}
+            title="Registrar" 
+            onPress={message}/>
         </View>
       </Image>
     );
@@ -86,15 +113,29 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'rgba(245,255,250,0.5)',
   },
+  logo: {
+    fontSize:30,
+    margin: 10,
+    color: '#8B008B',
+    textAlign: 'center',
+    fontStyle: 'italic',
+  },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
+    marginBottom: 5,
+    color: '#333333',
   },
   instructions: {
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
+  },
+  button: {
+    flexDirection: 'row',
+    height: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
