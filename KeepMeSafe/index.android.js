@@ -15,7 +15,6 @@ import {
   Image
 } from 'react-native';
 import firebase from 'firebase'
-import TextoPrueba from './components/TextoPrueba'
 import Persona from './components/Persona'
 
 const firebaseConfig = {
@@ -30,11 +29,33 @@ function message(){
   firebaseApp.database().ref('/usuario/user1').once('value').then((snap)=>alert(JSON.stringify(snap)));
 }
 
+function writeUserData(name, lastName, email, user, password, phone ) {
+  var id = firebaseApp.database().ref('usuarios/').push({
+    name,
+    lastName,
+    email
+  }).key;
+  alert(`User saved with id ${id}`);
+}
+
 export default class KeepMeSafe extends Component {
   constructor(props) {
     super(props);
-    this.state = {text: ''};
-    this.state = {p1: ''}
+    this.state = { person: 
+        {
+          name: 'Vickys',
+          lastName: 'Vic',
+          user: 'usuario1',
+          password: 'password'
+        }
+    };
+    this.state = {name: ''};
+    this.state = {lastName: ''};
+    this.state = {user: ''};
+    this.state = {password: ''};
+    this.state = {email: ''};
+    this.state = {phone: ''};
+    
   }
 
   render() {
@@ -47,37 +68,31 @@ export default class KeepMeSafe extends Component {
           </Text>
           <Text style={styles.welcome}>
             Regístrate
-            <Persona name={this.state.p1}/>
           </Text>
           <TextInput
             style={{height: 40, width: 200}}
-            placeholder="Change Anything"
-            onChangeText={(p1) => this.setState({p1})} 
-          />
-          <TextInput
-            style={{height: 40, width: 200}}
             placeholder="Nombre(s)"
-            onChangeText={(text) => this.setState({text})}
+            onChangeText={(name) => this.setState()}
           />
           <TextInput
             style={{height: 40, width: 200}}
             placeholder="Apellidos"
-            onChangeText={(text) => this.setState({text})}
+            onChangeText={(lastName) => this.setState({lastName})}
           />
           <TextInput
             style={{height: 40, width: 200}}
             placeholder="Correo Electronico"
-            onChangeText={(text) => this.setState({text})}
+            onChangeText={(email) => this.setState({email})}
           />
           <TextInput
             style={{height: 40, width: 200}}
             placeholder="Usuario"
-            onChangeText={(text) => this.setState({text})}
+            onChangeText={(user) => this.setState({user})}
           />
           <TextInput
             style={{height: 40, width: 200}}
             placeholder="Contraseña"
-            onChangeText={(text) => this.setState({text})}
+            onChangeText={(password) => this.setState({password})}
           />
           <TextInput
             style={{height: 40, width: 200}}
@@ -87,11 +102,11 @@ export default class KeepMeSafe extends Component {
           <TextInput
             style={{height: 40, width: 200}}
             placeholder="Telefono"
-            onChangeText={(text) => this.setState({text})}
+            onChangeText={(phone) => this.setState({phone})}
           />
           <Button style={styles.button}
             title="Registrar" 
-            onPress={message}/>
+            onPress={()=>writeUserData('German','Garcia','yo@yo.com')}/>
         </View>
       </Image>
     );

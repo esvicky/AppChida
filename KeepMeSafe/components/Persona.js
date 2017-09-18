@@ -6,28 +6,23 @@ import {
   View
 } from 'react-native';
 
-/*var user;
+
+var user;
 var password;
 var name;
 var lastName;
-var momLastName;
 var email;
 var phone;
 
-function validateForm(){
-
-}*/
+//function validateForm(){}
 
 export default class Persona extends Component{
 	render(){
+		console.log(this.props.people);
 		return(
-			//<Text>{this.props.user}</Text>
-			//<Text>{this.props.password}</Text>
-			<Text>{this.props.name}</Text>
-			/*<Text>{this.props.lastName}</Text>
-			<Text>{this.props.momLastName}</Text>
-			<Text>{this.props.email}</Text>
-			<Text>{this.props.phone}</Text>*/
+			<ul>
+				this.props.people.map((person) => <li>person.name</li>)
+			</ul>
 		);
 	}
 }
