@@ -41,14 +41,6 @@ function writeUserData(name, lastName, email, user, password, phone ) {
 export default class KeepMeSafe extends Component {
   constructor(props) {
     super(props);
-    this.state = { person: 
-        {
-          name: 'Vickys',
-          lastName: 'Vic',
-          user: 'usuario1',
-          password: 'password'
-        }
-    };
     this.state = {name: ''};
     this.state = {lastName: ''};
     this.state = {user: ''};
@@ -60,7 +52,7 @@ export default class KeepMeSafe extends Component {
 
   render() {
     return (
-      <Image source={require('./components/city.png')}
+      <Image source={require('./assets/img/city.png')}
             style={styles.imageBackground}>
         <View style={styles.container}>
           <Text style={styles.logo}>
